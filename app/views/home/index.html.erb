@@ -1,0 +1,68 @@
+<div class="min-h-screen bg-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Header Section -->
+    <div class="mb-8">
+      <h1 class="text-2xl font-semibold text-gray-900 mb-2">Stays nearby</h1>
+      <p class="text-gray-600">Discover great places to stay</p>
+    </div>
+
+    <!-- Property Grid - Fixed centering -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
+      <% 12.times do |index| %>
+        <div class="group cursor-pointer w-full max-w-sm">
+          <!-- Image Container with proper aspect ratio -->
+          <div class="relative w-full h-64 mb-3 overflow-hidden rounded-xl bg-gray-200">
+            <%= image_tag "house.jpg", 
+                alt: "Beautiful house in Tokyo.sample", 
+                class: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" %>
+            
+            <!-- Heart Icon (Favorite) -->
+            <button class="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white hover:scale-110 transition-all duration-200 shadow-md">
+              <svg class="w-4 h-4 text-gray-600 hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.682l-1.318-1.364a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Property Details -->
+          <div class="space-y-1 px-1">
+            <!-- Location and Rating -->
+            <div class="flex justify-between items-start">
+              <h3 class="text-gray-900 font-medium truncate pr-2">
+                <%= ["Osaka, Japan", "Kyoto, Japan", "Tokyo, Japan", "Hiroshima, Japan"].sample %>
+              </h3>
+              <div class="flex items-center text-sm whitespace-nowrap">
+                <svg class="w-3 h-3 fill-current mr-1 text-gray-900" viewBox="0 0 32 32">
+                  <path fill-rule="evenodd" d="m15.1 1.58-4.13 8.88-9.86 1.27a1 1 0 0 0-.54 1.74l7.3 6.57-1.97 9.85a1 1 0 0 0 1.48 1.06l8.62-5 8.63 5a1 1 0 0 0 1.48-1.06l-1.97-9.85 7.3-6.57a1 1 0 0 0-.55-1.73l-9.86-1.28-4.12-8.88a1 1 0 0 0-1.82 0z"></path>
+                </svg>
+                <span class="font-medium text-gray-900"><%= ["4.8", "4.9", "5.0", "4.7"].sample %></span>
+              </div>
+            </div>
+
+            <!-- Host -->
+            <p class="text-gray-500 text-sm">Hosted by <%= ["Doraemon", "Nobita", "Shizuka", "Suneo"].sample %></p>
+
+            <!-- Distance or Special feature -->
+            <p class="text-gray-500 text-sm"><%= ["2.1 kilometers away", "Mountain view", "Beach nearby", "City center"].sample %></p>
+
+            <!-- Dates -->
+            <p class="text-gray-500 text-sm">Jan <%= [15, 20, 25].sample %>-<%= [28, 30, 31].sample %></p>
+
+            <!-- Price -->
+            <div class="pt-1">
+              <span class="text-gray-900 font-medium">$<%= [89, 110, 125, 150, 200].sample %></span>
+              <span class="text-gray-500 text-sm"> night</span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Load More Button -->
+    <div class="text-center mt-12">
+      <button class="bg-gray-900 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors duration-200 font-medium">
+        Show more stays
+      </button>
+    </div>
+  </div>
+</div>
